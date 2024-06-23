@@ -1,9 +1,12 @@
+// Triggered when Player wnats to edit name
 function openPlayerConfig(event) {
    editedPlayerId = +event.target.dataset.playerid;
   // even though i declared as playerId but i have to use dataset.playerid
   backdrop.style.display = "block";
   configModal.style.display = "block";
 }
+
+// Closing the overlay 
 function closeOverlay() {
   backdrop.style.display = "none";
   configModal.style.display = "none";
@@ -12,10 +15,11 @@ function closeOverlay() {
   formElement.firstElementChild.lastElementChild.value='';
 }
 
+// Triggered when user submits a name
 function onSubmit(event){
   event.preventDefault();
   const formData = new FormData(event.target);
- const playerName = formData.get('player-name').trim();
+  const playerName = formData.get('player-name').trim();
 
  if (!playerName) {
   errorElement.textContent ="Enter a valid name!";

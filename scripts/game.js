@@ -1,10 +1,10 @@
+// Resetting the game to play again
 function resetGame(){
     activePlayer =0;
     rounds = 1;
     isGameOver=false;
     gameOverElement.firstElementChild.innerHTML = 'You won, <span id="winner-name">PLAYER NAME!'
     gameOverElement.style.display = 'none';
-
 
     childCount = 0;
     for (let i = 0; i < 3; i++) {
@@ -15,9 +15,7 @@ function resetGame(){
             gameBoardElement.textContent='';
             gameBoardElement.classList.remove('disabled');
             childCount++;
-
-        }
-        
+        }      
     }
 
     activePlayerName.textContent = player[activePlayer].name;
@@ -25,16 +23,17 @@ function resetGame(){
     gameSection.children[1].style.display = 'block'; 
 }
 
+// Triggered when Start new Game btn is Clicked
 function startGame(){
     if (player[0].name == ''||player[1].name == '') {
         alert("Enter custom player names!");
         return;
     }
 
-    resetGame();
-    
+    resetGame();   
     
 }
+
 
 function switchPlayer(){
     
@@ -47,6 +46,8 @@ function switchPlayer(){
     activePlayerName.textContent = player[activePlayer].name;
 
 }
+
+// Triggered when player selects a field
 function selectGameField(event){
     const selectedField= event.target;
 
@@ -64,13 +65,12 @@ function selectGameField(event){
 
     gameBoardData[row][column] = activePlayer+1;
 
+    // Disable the selected field
     selectedField.textContent = player[activePlayer].symbol;
     selectedField.classList.add('disabled');
 
-    
-
+    // Check after every round for game over
     winnerId = checkGameOver();
-    console.log(winnerId);
 
     if(winnerId != 0){
         gameOver(winnerId);
@@ -102,7 +102,7 @@ function checkGameOver(){
         
     }
 
-    // Checking for bottom left tovtop right
+    // Checking for bottom left to top right
         if (gameBoardData[2][0]>0 && gameBoardData[2][0] == gameBoardData[1][1] &&
             gameBoardData[1][1] == gameBoardData[0][2]
         ) {
@@ -122,10 +122,14 @@ function checkGameOver(){
         return 0;
 }
 
+// Triggered when game is over 
 function gameOver(winnerId){
+
     gameOverElement.style.display = 'block';
     gameSection.children[1].style.display = 'none'; 
+
     isGameOver = true;
+
     if (winnerId >0) {
         gameOverElement.firstElementChild.firstElementChild.textContent = player[winnerId-1].name
     }else{

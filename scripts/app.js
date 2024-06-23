@@ -1,44 +1,54 @@
+// UTILIZE DOM to have elements and buttons
+
 const configModal = document.getElementById("config-modal");
 const backdrop = document.getElementById("backdrop");
-const formElement = document.querySelector('form');
+const formElement = document.querySelector("form");
 const errorElement = document.getElementById("config-error");
-const gameSection = document.getElementById('active-game-section');
+const gameSection = document.getElementById("active-game-section");
 // const gameField = document.querySelectorAll('#active-game li');
-const gameArea = document.getElementById('active-game');
-const activePlayerName = document.getElementById('active-player-name');
-const gameOverElement = document.getElementById('game-over');
+const gameArea = document.getElementById("active-game");
+const activePlayerName = document.getElementById("active-player-name");
+const gameOverElement = document.getElementById("game-over");
 
+// Game data
 let editedPlayerId = 0;
-let activePlayer=0;
+let activePlayer = 0;
 let rounds = 1;
 isGameOver = false;
-const player = [{
-    name :'' ,
-    symbol : 'X'
-},{
-    name :'' ,
-    symbol : 'O'
-}];
+const player = [
+  {
+    name: "",
+    symbol: "X",
+  },
+  {
+    name: "",
+    symbol: "O",
+  },
+];
 
-gameBoardData = [[0,0,0],[0,0,0],[0,0,0]];
+gameBoardData = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+];
 
+// Game Buttons
 const editPlayer1Btn = document.getElementById("edit-player1-btn");
 const editPlayer2Btn = document.getElementById("edit-player2-btn");
 const cancelOverBtn = document.getElementById("cancel-over-btn");
 const startGameBtn = document.getElementById("start-btn");
 
-
-
+// Adding Event Listener
 editPlayer1Btn.addEventListener("click", openPlayerConfig);
 editPlayer2Btn.addEventListener("click", openPlayerConfig);
 cancelOverBtn.addEventListener("click", closeOverlay);
-startGameBtn.addEventListener('click',startGame);
+startGameBtn.addEventListener("click", startGame);
 
 backdrop.addEventListener("click", closeOverlay);
-formElement.addEventListener('submit',onSubmit);
+formElement.addEventListener("submit", onSubmit);
 
 // for (const gf of gameField) {
 //     gf.addEventListener('click',selectGameField);
 // }
 
-gameArea.addEventListener('click',selectGameField);
+gameArea.addEventListener("click", selectGameField);

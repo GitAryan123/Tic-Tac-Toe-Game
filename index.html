@@ -13,12 +13,16 @@
     <script src="./scripts/app.js" defer></script>
   </head>
   <body>
+
     <div id="backdrop"></div>
 
+    <!-- Header Section for the game -->
     <header id="main-header">
       <h1>Tic Tac Toe Game</h1>
       <h2>Built By Aryan</h2>
     </header>
+ 
+    <!-- Main Section-->
     <main>
       <aside class="modal" id="config-modal">
         <h2>Enter your name</h2>
@@ -36,6 +40,8 @@
           </div>
         </form>
       </aside>
+     
+      <!-- Configuration Section -->
       <section id="confi-section">
         <ol>
           <li data-row="1" data-column="1">
@@ -57,6 +63,8 @@
         </ol>
         <button class="btn" id="start-btn">Start New Game</button>
       </section>
+     
+      <!-- Active game section Active game board  -->
       <section id="active-game-section">
         <article id="game-over" >
           <h2>You won, <span id="winner-name">PLAYER NAME!</span></h2>
@@ -77,6 +85,7 @@
           <li data-row="3" data-column="3"></li>
         </ol>
       </section>
+
     </main>
   </body>
 </html>
