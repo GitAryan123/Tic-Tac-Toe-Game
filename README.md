@@ -1,2 +1,2 @@
 # Tic-Tac-Toe-Game
- A intuitive Tic Tac Toe Game.
+ An intuitive Tic Tac Toe Game.
